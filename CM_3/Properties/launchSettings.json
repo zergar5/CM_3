@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CM_3": {
+      "commandName": "Project",
+      "workingDirectory": "..\\CM_3\\"
+    }
+  }
+}
