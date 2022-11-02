@@ -88,13 +88,13 @@ public static class Calculator
         return Math.Sqrt(result);
     }
 
-    public static double[] MultiplyDiagonalOnVector(double[] vectorA, double[] vectorB)
+    public static double[] MultiplyDiagonalOnVector(double[] diagonal, double[] vector)
     {
-        var n = vectorA.Length;
+        var n = diagonal.Length;
         var result = new double[n];
         for (var i = 0; i < n; i++)
         {
-            result[i] = vectorA[i] * vectorB[i]; 
+            result[i] = diagonal[i] * vector[i]; 
         }
 
         return result;
