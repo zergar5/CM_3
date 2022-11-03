@@ -45,3 +45,8 @@ Array.Copy(start, x, sparseMatrix.N);
 var diagonalLOS = new DiagonalLOS();
 x = diagonalLOS.Solve(sparseMatrix, x, pr, eps, maxIter);
 vectorO.Write(x, "diagonalLOS.txt");
+
+Array.Copy(start, x, sparseMatrix.N);
+var choleskyLOS = new CholeskyLOS();
+x = choleskyLOS.Solve(sparseMatrix, x, pr, eps, maxIter);
+vectorO.Write(x, "diagonalLOS.txt");
