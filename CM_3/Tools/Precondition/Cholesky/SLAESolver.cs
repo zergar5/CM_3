@@ -33,14 +33,14 @@ public static class SLAESolver
         var gg = sparseMatrix.GG;
         var di = sparseMatrix.DI;
         var x = new double[n];
+        Array.Copy(y, x, n);
         for (var i = n - 1; i >= 0; i--)
         {
-            var sumL = 0.0;
-            for (var j = ig[i + 1]; j < ig[n]; j++)
+            x[i] /= di[i];
+            for (var j = ig[i + 1] - 1; j >= ig[i]; j--)
             {
-                sumL += gg[j] * y[jg[j]];
+                x[jg[j]] -= gg[j] * x[i];
             }
-            x[i] = (y[i] - sumL) / di[i];
         }
 
         return x;

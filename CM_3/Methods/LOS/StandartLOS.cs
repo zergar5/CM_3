@@ -7,7 +7,7 @@ public class StandartLOS : LOS
 {
     public override void PrepareProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, out double[] r0, out double[] z0, out double[] p0)
     {
-        r0 = Calculator.SubtractVectors(pr, 
+        r0 = Calculator.SubtractVectors(pr,
             Calculator.MultiplyMatrixOnVector(sparseMatrix, x));
         z0 = r0;
         p0 = Calculator.MultiplyMatrixOnVector(sparseMatrix, z0);
@@ -16,11 +16,12 @@ public class StandartLOS : LOS
     public override double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter,
         double[] r0, double[] z0, double[] p0)
     {
+        Console.WriteLine("LOS");
         var r = r0;
         var z = z0;
         var p = p0;
         var residual = Calculator.ScalarProduct(r, r);
-        for (int i = 1; i <= maxIter && residual > eps; i++)
+        for (var i = 1; i <= maxIter && residual >= eps; i++)
         {
             var scalarPP = Calculator.ScalarProduct(p, p);
 
@@ -42,12 +43,12 @@ public class StandartLOS : LOS
             var pNext = Calculator.SumVectors(AxRNext, 
                 Calculator.MultiplyVectorOnNumber(p, betaK));
 
+            residual = Calculator.ScalarProduct(rNext, rNext);
+
             x = xNext;
             r = rNext;
             z = zNext;
             p = pNext;
-
-            residual -= alphaK * alphaK * scalarPP;
 
             CourseHolder.GetInfo(i, residual);
         }

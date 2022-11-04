@@ -1,4 +1,5 @@
-﻿using CM_3.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using CM_3.Models;
 using CM_3.Tools;
 
 namespace CM_3.Methods.LOS;
@@ -19,11 +20,14 @@ public class CholeskyLOS : LOS
 
     public override double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter, double[] r0, double[] z0, double[] p0)
     {
+        Console.WriteLine("CholeskyLOS");
         var r = r0;
         var z = z0;
         var p = p0;
-        var residual = Calculator.ScalarProduct(r, r);
-        for (var i = 1; i <= maxIter && residual > eps; i++)
+        var residual0 = Calculator.ScalarProduct(r, r);
+        var residual = residual0;
+        var epsPow2 = eps * eps;
+        for (var i = 1; i <= maxIter && residual > epsPow2; i++)
         {
             var scalarPP = Calculator.ScalarProduct(p, p);
 
@@ -45,16 +49,15 @@ public class CholeskyLOS : LOS
                 SLAESolver.CalcX(_m, rNext),
                 Calculator.MultiplyVectorOnNumber(z, betaK));
 
-            var pNext = Calculator.SumVectors(
-                Calculator.MultiplyDiagonalOnVector(LAURNext, rNext),
+            var pNext = Calculator.SumVectors(LAURNext,
                 Calculator.MultiplyVectorOnNumber(p, betaK));
+
+            residual = Calculator.ScalarProduct(rNext, rNext) / residual0;
 
             x = xNext;
             r = rNext;
             z = zNext;
             p = pNext;
-
-            residual -= alphaK * alphaK * scalarPP;
 
             CourseHolder.GetInfo(i, residual);
         }

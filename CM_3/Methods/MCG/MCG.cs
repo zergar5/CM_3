@@ -22,9 +22,11 @@ public class MCG : IMethod
     private double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter,
         double[] r0, double[] z0)
     {
+        Console.WriteLine("MCG");
         var r = r0;
         var z = z0;
-        var residual = Calculator.CalcNorm(r) / Calculator.CalcNorm(pr);
+        var prNorm = Calculator.CalcNorm(pr);
+        var residual = Calculator.CalcNorm(r) / prNorm;
         for (var i = 1; i <= maxIter && residual > eps; i++)
         {
             var scalarRR = Calculator.ScalarProduct(r, r);
@@ -44,11 +46,11 @@ public class MCG : IMethod
 
             var zNext = Calculator.SumVectors(rNext, Calculator.MultiplyVectorOnNumber(z, betaK));
 
+            residual = Calculator.CalcNorm(rNext) / prNorm;
+
             x = xNext;
             r = rNext;
             z = zNext;
-
-            residual = Calculator.CalcNorm(r) / Calculator.CalcNorm(pr);
 
             CourseHolder.GetInfo(i, residual);
         }

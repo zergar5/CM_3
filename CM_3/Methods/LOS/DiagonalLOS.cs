@@ -20,11 +20,14 @@ public class DiagonalLOS : LOS
 
     public override double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter, double[] r0, double[] z0, double[] p0)
     {
+        Console.WriteLine("DiagonalLOS");
         var r = r0;
         var z = z0;
         var p = p0;
         var residual = Calculator.ScalarProduct(r, r);
-        for (var i = 1; i <= maxIter && residual > eps; i++)
+        var residual0 = residual;
+        var epsPow2 = eps * eps;
+        for (var i = 1; i <= maxIter && residual > epsPow2; i++)
         {
             var scalarPP = Calculator.ScalarProduct(p, p);
 
@@ -49,13 +52,13 @@ public class DiagonalLOS : LOS
             var pNext = Calculator.SumVectors(LAURNext,
                 Calculator.MultiplyVectorOnNumber(p, betaK));
 
+            residual = Calculator.ScalarProduct(rNext, rNext) / residual0;
+
             x = xNext;
             r = rNext;
             z = zNext;
             p = pNext;
 
-            residual -= alphaK * alphaK * scalarPP;
-            
             CourseHolder.GetInfo(i, residual);
         }
         Console.WriteLine();

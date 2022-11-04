@@ -1,4 +1,5 @@
 ﻿using CM_3.IO;
+using CM_3.Tools;
 
 namespace CM_3.Models;
 
@@ -15,9 +16,13 @@ public class SparseMatrix
         matrixIO.Read(this, sourcesForMatrix);
     }
 
-    public void GenerateHilbert(MatrixIO matrixIO, string fileName)
+    public void GenerateHilbert(MatrixIO matrixIO, HilbertGenerator hilbertGenerator, string fileName)
     {
-        double[,] hilbertMatrix = new double[20, 20];
         matrixIO.ReadSize(this, fileName);
+        var sparseMatrix = hilbertGenerator.Generate(N);
+        IG = sparseMatrix.IG;
+        JG = sparseMatrix.JG;
+        GG = sparseMatrix.GG;
+        DI = sparseMatrix.DI;
     }
 }

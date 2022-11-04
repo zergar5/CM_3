@@ -25,7 +25,6 @@ public class IncompleteCholeskyDecomposition
                 for (var k = cIG[i]; k < j; k++)
                 {
                     var iPrev = i - cJG[j];
-                    if (iPrev == i) continue;
                     var kPrev = Array.IndexOf(cJG, cJG[k], cIG[i - iPrev], cIG[i - iPrev + 1] - cIG[i - iPrev]);
                     if (kPrev != -1)
                     {

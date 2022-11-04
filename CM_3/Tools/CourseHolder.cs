@@ -1,9 +1,17 @@
-﻿namespace CM_3.Tools;
+﻿using System.Text;
+
+namespace CM_3.Tools;
 
 public static class CourseHolder
 {
     public static void GetInfo(int iteration, double residual)
     {
-        Console.Write($"Iteration number: {iteration}, residual: {residual}\r");
+        var stringBuilder = new StringBuilder();
+        var info = "residual: " + residual;
+        info = info.Replace(',', '.');
+        stringBuilder.Append("Iteration number: " + iteration + ", ");
+        stringBuilder.Append(info);
+        stringBuilder.Append("                                   \r");
+        Console.Write(stringBuilder.ToString());
     }
 }

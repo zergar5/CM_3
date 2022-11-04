@@ -14,26 +14,27 @@ public class SLAESolverTest
         _sparseMatrix = new SparseMatrix
         {
             N = 5,
-            IG = new[] { 0, 0, 0, 2, 4, 6 },
-            JG = new[] { 0, 1, 1, 2, 0, 2 },
-            DI = new[] { 2.0, 2.0, 2.0, 2.0, 2.0 },
-            GG = new[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 },
+            IG = new[] { 0, 0, 0, 2, 5, 6 },
+            JG = new[] { 0, 1, 0, 1, 2, 3 },
+            DI = new[] { Math.Sqrt(2.0), Math.Sqrt(2.0), 1.0, 1.0, 1.0 },
+            GG = new[] { Math.Sqrt(2.0)/2, Math.Sqrt(2.0)/2, Math.Sqrt(2.0)/2, Math.Sqrt(2.0)/2, 0.0, 1.0 },
         };
-        _pr = new[] { 4.0, 4.0, 6.0, 4.0, 4.0 };
+        _pr = new[] { 4.0, 4.0, 5.0, 6.0, 3.0 };
     }
 
     [Test]
     public void CalcYTest()
     {
-        var actual = new[] { 2.0 * Math.Sqrt(2.0), 2.0 * Math.Sqrt(2.0), 2.0 / 5.0 * Math.Sqrt(5.0), Math.Sqrt(30.0) / 5 };
+        var actual = new[] { 2.8284271247461898, 2.8284271247461898, 1.0 , 2.0, 1.0 };
         var expected = SLAESolver.CalcY(_sparseMatrix, _pr);
-        CollectionAssert.AreEqual(expected, actual);
+        CollectionAssert.AreEquivalent(expected, actual);
     }
 
-    [TestCase(new[] { 5.0, 5.0, 5.0, 5.0, 5.0 })]
+    [TestCase(new[] { 0.99999999999999989, 0.99999999999999989, 1.0, 1.0, 1.0 })]
     public void CalcXTest(double[] actual)
     {
-        var expected = Calculator.MultiplyVectorOnNumber(_pr, 5.0);
-        CollectionAssert.AreEqual(expected, actual);
+        var y = new[] { 2.8284271247461898, 2.8284271247461898, 1.0, 2.0, 1.0 };
+        var expected = SLAESolver.CalcX(_sparseMatrix, y);
+        CollectionAssert.AreEquivalent(expected, actual);
     }
 }
