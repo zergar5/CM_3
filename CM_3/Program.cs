@@ -34,7 +34,7 @@ var start = vectorI.ReadDouble("start4545.txt");
 
 var parametersI = new ParametersIO("../CM_3/Input/");
 
-var tuple = parametersI.Read("kuslau4545.txt");
+var tuple = parametersI.ReadMethodParameters("kuslau4545.txt");
 var maxIter = tuple.Item1;
 var eps = tuple.Item2;
 

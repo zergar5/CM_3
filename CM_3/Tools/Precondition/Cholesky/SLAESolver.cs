@@ -14,12 +14,12 @@ public static class SLAESolver
         var y = new double[n];
         for (var i = 0; i < n; i++)
         {
-            var sumL = 0.0;
+            var sum = 0.0;
             for (var j = ig[i]; j < ig[i + 1]; j++)
             {
-                sumL += gg[j] * y[jg[j]];
+                sum += gg[j] * y[jg[j]];
             }
-            y[i] = (pr[i] - sumL) / di[i];
+            y[i] = (pr[i] - sum) / di[i];
         }
 
         return y;

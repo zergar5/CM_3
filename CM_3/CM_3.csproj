@@ -8,10 +8,53 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Methods\BlockRelaxation\" />
+    <None Remove="Input\3Point\di.txt" />
+    <None Remove="Input\3Point\gg.txt" />
+    <None Remove="Input\3Point\ig.txt" />
+    <None Remove="Input\3Point\jg.txt" />
+    <None Remove="Input\3Point\kuslau.txt" />
+    <None Remove="Input\3Point\pr.txt" />
+    <None Remove="Input\3Point\start.txt" />
+    <None Remove="Input\di.txt" />
+    <None Remove="Input\di4545.txt" />
+    <None Remove="Input\di945.txt" />
+    <None Remove="Input\gg.txt" />
+    <None Remove="Input\gg4545.txt" />
+    <None Remove="Input\gg945.txt" />
+    <None Remove="Input\ig.txt" />
+    <None Remove="Input\ig4545.txt" />
+    <None Remove="Input\ig945.txt" />
+    <None Remove="Input\jg.txt" />
+    <None Remove="Input\jg4545.txt" />
+    <None Remove="Input\jg945.txt" />
+    <None Remove="Input\kuslau.txt" />
+    <None Remove="Input\kuslau4545.txt" />
+    <None Remove="Input\kuslau945.txt" />
+    <None Remove="Input\pr.txt" />
+    <None Remove="Input\pr4545.txt" />
+    <None Remove="Input\pr945.txt" />
+    <None Remove="Input\start.txt" />
+    <None Remove="Input\start4545.txt" />
+    <None Remove="Input\start945.txt" />
+    <None Remove="Tests\di4545.txt" />
+    <None Remove="Tests\di945.txt" />
+    <None Remove="Tests\gg4545.txt" />
+    <None Remove="Tests\gg945.txt" />
+    <None Remove="Tests\ig4545.txt" />
+    <None Remove="Tests\ig945.txt" />
+    <None Remove="Tests\jg4545.txt" />
+    <None Remove="Tests\jg945.txt" />
+    <None Remove="Tests\kuslau4545.txt" />
+    <None Remove="Tests\kuslau945.txt" />
+    <None Remove="Tests\pr4545.txt" />
+    <None Remove="Tests\pr945.txt" />
+    <None Remove="Tests\start4545.txt" />
+    <None Remove="Tests\start945.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Methods\MCG\" />
     <Folder Include="Output\" />
-    <Folder Include="Tests\" />
   </ItemGroup>
 
 </Project>

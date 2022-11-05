@@ -10,7 +10,7 @@ public class ParametersIO
     {
         _path = path;
     }
-    public (int, double) Read(string fileName)
+    public (int, double) ReadMethodParameters(string fileName)
     {
         using var streamReader = new StreamReader(_path + fileName);
         var paramsIn = streamReader.ReadLine().Replace('.', ',').Split(' ');
