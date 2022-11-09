@@ -1,6 +1,6 @@
 ﻿using CM_3.Models;
 
-namespace CM_3.Tools;
+namespace CM_3.Tools.Precondition.Cholesky;
 
 public static class SLAESolver
 {

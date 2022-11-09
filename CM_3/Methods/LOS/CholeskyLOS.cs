@@ -1,6 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using CM_3.Models;
+﻿using CM_3.Models;
 using CM_3.Tools;
+using CM_3.Tools.Precondition;
+using CM_3.Tools.Precondition.Cholesky;
+using CM_3.Tools.SolutionCheck;
 
 namespace CM_3.Methods.LOS;
 
@@ -52,12 +54,12 @@ public class CholeskyLOS : LOS
             var pNext = Calculator.SumVectors(LAURNext,
                 Calculator.MultiplyVectorOnNumber(p, betaK));
 
-            residual = Calculator.ScalarProduct(rNext, rNext) / residual0;
-
             x = xNext;
             r = rNext;
             z = zNext;
             p = pNext;
+
+            residual = Calculator.ScalarProduct(r, r) / residual0;
 
             CourseHolder.GetInfo(i, residual);
         }

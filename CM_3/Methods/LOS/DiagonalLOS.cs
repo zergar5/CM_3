@@ -1,5 +1,7 @@
 ﻿using CM_3.Models;
 using CM_3.Tools;
+using CM_3.Tools.Precondition;
+using CM_3.Tools.SolutionCheck;
 
 namespace CM_3.Methods.LOS;
 
@@ -14,7 +16,7 @@ public class DiagonalLOS : LOS
             Calculator.SubtractVectors(pr,
                 Calculator.MultiplyMatrixOnVector(sparseMatrix, x)));
         z0 = Calculator.MultiplyDiagonalOnVector(_m, r0);
-        p0 = Calculator.MultiplyDiagonalOnVector(_m, 
+        p0 = Calculator.MultiplyDiagonalOnVector(_m,
             Calculator.MultiplyMatrixOnVector(sparseMatrix, z0));
     }
 
@@ -39,8 +41,8 @@ public class DiagonalLOS : LOS
             var rNext = Calculator.SubtractVectors(r,
                 Calculator.MultiplyVectorOnNumber(p, alphaK));
 
-            var LAURNext = Calculator.MultiplyDiagonalOnVector(_m, 
-                Calculator.MultiplyMatrixOnVector(sparseMatrix, 
+            var LAURNext = Calculator.MultiplyDiagonalOnVector(_m,
+                Calculator.MultiplyMatrixOnVector(sparseMatrix,
                     Calculator.MultiplyDiagonalOnVector(_m, rNext)));
 
             var betaK = -(Calculator.ScalarProduct(p, LAURNext) / scalarPP);
@@ -52,12 +54,12 @@ public class DiagonalLOS : LOS
             var pNext = Calculator.SumVectors(LAURNext,
                 Calculator.MultiplyVectorOnNumber(p, betaK));
 
-            residual = Calculator.ScalarProduct(rNext, rNext) / residual0;
-
             x = xNext;
             r = rNext;
             z = zNext;
             p = pNext;
+
+            residual = Calculator.ScalarProduct(r, r) / residual0;
 
             CourseHolder.GetInfo(i, residual);
         }

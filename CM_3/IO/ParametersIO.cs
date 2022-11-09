@@ -1,7 +1,4 @@
-﻿using CM_3.Models;
-using System.Globalization;
-
-namespace CM_3.IO;
+﻿namespace CM_3.IO;
 
 public class ParametersIO
 {

@@ -94,7 +94,7 @@ public static class Calculator
         var result = new double[n];
         for (var i = 0; i < n; i++)
         {
-            result[i] = diagonal[i] * vector[i]; 
+            result[i] = diagonal[i] * vector[i];
         }
 
         return result;

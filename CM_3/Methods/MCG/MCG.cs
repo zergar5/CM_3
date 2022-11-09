@@ -1,5 +1,6 @@
 ﻿using CM_3.Models;
 using CM_3.Tools;
+using CM_3.Tools.SolutionCheck;
 
 namespace CM_3.Methods.MCG;
 
@@ -22,7 +23,7 @@ public class MCG : IMethod
     private double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter,
         double[] r0, double[] z0)
     {
-        Console.WriteLine("MCG");
+        //Console.WriteLine("MCG");
         var r = r0;
         var z = z0;
         var prNorm = Calculator.CalcNorm(pr);
@@ -35,11 +36,11 @@ public class MCG : IMethod
 
             var alphaK = scalarRR / Calculator.ScalarProduct(AxZ, z);
 
-            var xNext = Calculator.SumVectors(x, 
+            var xNext = Calculator.SumVectors(x,
                 Calculator.MultiplyVectorOnNumber(z, alphaK));
 
-            var rNext = Calculator.SubtractVectors(r, 
-                
+            var rNext = Calculator.SubtractVectors(r,
+
                 Calculator.MultiplyVectorOnNumber(AxZ, alphaK));
 
             var betaK = Calculator.ScalarProduct(rNext, rNext) / scalarRR;

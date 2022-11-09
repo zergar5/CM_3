@@ -1,5 +1,5 @@
-﻿using CM_3.Models;
-using CM_3.Tools;
+﻿using CM_3.Tools;
+using CM_3.Tools.Precondition;
 
 namespace CM_3_Tests;
 
@@ -10,7 +10,7 @@ public class PreconditionerTest
     [SetUp]
     public void Setup()
     {
-        _di = new [] { 2.0, 2.0, 2.0, 2.0, 2.0 };
+        _di = new[] { 2.0, 2.0, 2.0, 2.0, 2.0 };
     }
 
     [Test]

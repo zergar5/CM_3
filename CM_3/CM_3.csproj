@@ -8,13 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Input\3Point\di.txt" />
+    <Compile Remove="Tools\SolutionChecker.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Input\3Point\gg.txt" />
-    <None Remove="Input\3Point\ig.txt" />
-    <None Remove="Input\3Point\jg.txt" />
-    <None Remove="Input\3Point\kuslau.txt" />
     <None Remove="Input\3Point\pr.txt" />
-    <None Remove="Input\3Point\start.txt" />
     <None Remove="Input\di.txt" />
     <None Remove="Input\di4545.txt" />
     <None Remove="Input\di945.txt" />

@@ -14,12 +14,12 @@ namespace CM_3_Tests
             _sparseMatrix = new SparseMatrix
             {
                 N = 5,
-                IG = new[] {0, 0, 0, 2, 4, 6},
-                JG = new[] {0, 1, 1, 2, 0, 2},
-                DI = new[] { 2.0, 2.0, 2.0, 2.0, 2.0},
-                GG = new[] {1.0, 1.0, 1.0, 1.0, 1.0, 1.0},
+                IG = new[] { 0, 0, 0, 2, 4, 6 },
+                JG = new[] { 0, 1, 1, 2, 0, 2 },
+                DI = new[] { 2.0, 2.0, 2.0, 2.0, 2.0 },
+                GG = new[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 },
             };
-            _pr = new[] {1.0, 1.0, 1.0, 1.0, 1.0};
+            _pr = new[] { 1.0, 1.0, 1.0, 1.0, 1.0 };
         }
 
         [TestCase(new[] { 4.0, 4.0, 6.0, 4.0, 4.0 })]
@@ -37,7 +37,7 @@ namespace CM_3_Tests
         }
 
         [TestCase(
-            new[] {6.0, 6.0, 6.0, 6.0, 6.0},
+            new[] { 6.0, 6.0, 6.0, 6.0, 6.0 },
             new[] { 5.0, 5.0, 5.0, 5.0, 5.0 })]
         public void SubtractVectorsTest(double[] vectorA, double[] actual)
         {

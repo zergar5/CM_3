@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CM_3.Tools;
+namespace CM_3.Tools.SolutionCheck;
 
 public static class CourseHolder
 {

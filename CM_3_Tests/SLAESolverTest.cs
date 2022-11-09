@@ -1,5 +1,6 @@
 ﻿using CM_3.Models;
 using CM_3.Tools;
+using CM_3.Tools.Precondition.Cholesky;
 
 namespace CM_3_Tests;
 
@@ -25,7 +26,7 @@ public class SLAESolverTest
     [Test]
     public void CalcYTest()
     {
-        var actual = new[] { 2.8284271247461898, 2.8284271247461898, 1.0 , 2.0, 1.0 };
+        var actual = new[] { 2.8284271247461898, 2.8284271247461898, 1.0, 2.0, 1.0 };
         var expected = SLAESolver.CalcY(_sparseMatrix, _pr);
         CollectionAssert.AreEquivalent(expected, actual);
     }
