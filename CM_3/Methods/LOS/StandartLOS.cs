@@ -17,7 +17,7 @@ public class StandartLOS : LOS
     public override double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter,
         double[] r0, double[] z0, double[] p0)
     {
-        //Console.WriteLine("LOS");
+        Console.WriteLine("LOS");
         var r = r0;
         var z = z0;
         var p = p0;
@@ -51,9 +51,9 @@ public class StandartLOS : LOS
 
             residual = Calculator.ScalarProduct(r, r);
 
-            //CourseHolder.GetInfo(i, residual);
+            CourseHolder.GetInfo(i, residual);
         }
-        //Console.WriteLine();
+        Console.WriteLine();
         return x;
     }
 }
