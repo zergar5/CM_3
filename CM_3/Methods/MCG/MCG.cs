@@ -23,7 +23,7 @@ public class MCG : IMethod
     private double[] IterationProcess(SparseMatrix sparseMatrix, double[] x, double[] pr, double eps, int maxIter,
         double[] r0, double[] z0)
     {
-        //Console.WriteLine("MCG");
+        Console.WriteLine("MCG");
         var r = r0;
         var z = z0;
         var prNorm = Calculator.CalcNorm(pr);
