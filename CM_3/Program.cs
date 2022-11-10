@@ -3,7 +3,6 @@ using CM_3.Methods.LOS;
 using CM_3.Methods.MCG;
 using CM_3.Models;
 using CM_3.Tools;
-using System.Globalization;
 using CM_3.Tools.SolutionCheck;
 
 var sources = new SourcesForMatrix

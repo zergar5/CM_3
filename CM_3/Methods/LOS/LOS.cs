@@ -1,5 +1,4 @@
-﻿using CM_3.Methods.MCG;
-using CM_3.Models;
+﻿using CM_3.Models;
 
 namespace CM_3.Methods.LOS;
 

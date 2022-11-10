@@ -1,5 +1,4 @@
 ﻿using CM_3.Models;
-using CM_3.Tools;
 using CM_3.Tools.Precondition.Cholesky;
 
 namespace CM_3_Tests;

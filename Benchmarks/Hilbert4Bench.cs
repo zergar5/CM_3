@@ -1,11 +1,9 @@
 ﻿using BenchmarkDotNet.Attributes;
 using CM_3.IO;
+using CM_3.Methods.LOS;
 using CM_3.Methods.MCG;
 using CM_3.Models;
 using CM_3.Tools;
-using CM_3.Tools.SolutionCheck;
-using System.Reflection.Metadata;
-using CM_3.Methods.LOS;
 
 namespace Benchmarks;
 

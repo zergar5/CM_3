@@ -8,7 +8,7 @@ public class HilbertGenerator
     {
         var n = size;
         var ig = new int[n + 1];
-        var jg = new int[(1 + n - 1) * (n - 1) / 2 ];
+        var jg = new int[(1 + n - 1) * (n - 1) / 2];
         var gg = new double[(1 + n - 1) * (n - 1) / 2];
         var di = new double[n];
 
